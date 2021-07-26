@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+</head>
+<body>
+    
+    {% extends "tasks/base.html" %}
+    {% block contain %}
+      <div class='container mt-4'>
+          <div class="row">
+    <div class="col-12">
+        <div class='text-center'>
+        <h1 class="">To Do List</h1></div>
+        <div class='text-center' >
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label>Add New: </label>
+            {{form.task}}
+            <input type="submit" class="btn btn-secondary">
+
+        </form>
+        
+           
+        {% for each_task in tasks%}
+            <br>
+            <div class="card text-center">
+                <div class="card-header">
+
+                    {% if each_task.is_complete %}
+                    <strike>{{each_task}}</strike>
+                    {% else %}
+                    {{each_task}}
+                    {% endif %}
+                    
+                </div>
+                <div class="card-body">
+                    
+                  <h5 class="card-title">
+                  
+                    
+                    </h5>
+                  
+                  <a href="/update/{{each_task.id}}" class="btn btn-secondary">Update</a>
+                  <a href="/delete/{{each_task.id}}" class="btn btn-secondary">Delete</a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{each_task.time}}
+                </div>
+              </div>
+        
+      
+        {% endfor %}
+        
+        
+        
+    </div>  
+    </div>
+</div>
+</div>
+    {% endblock contain %}
+    
+</body>
+</html>

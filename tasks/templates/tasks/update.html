@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+</head>
+<body>
+    
+    {% extends "tasks/base.html" %}
+    {% block contain %}
+      
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center mt-5">
+                    <h5>Update</h5>
+
+    <form action="" method="POST" class="p-4">
+        {% csrf_token %}
+        {{form.as_p}}
+     <button type="submit" class="btn btn-secondary">Submit</button>
+        
+    </form>
+    <a href="/"><button class="btn btn-secondary">Cancel</button></a>
+</div>
+</div>
+</div>
+</div>
+    {% endblock contain%}
+</body>
+</html>
